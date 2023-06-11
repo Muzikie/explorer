@@ -2,7 +2,10 @@ import type {
   Collection,
   Audio,
   Profile,
-  Playlist
+  Playlist,
+  Transaction,
+  EndpointParams,
+  MetaProps,
 } from '~/configs';
 
 
@@ -19,8 +22,15 @@ export interface collectionLoaderProps {
   };
 }
 
+export interface TransactionLoaderData {
+  transactions: Awaited<Transaction[]>;
+  meta: MetaProps;
+  params: EndpointParams;
+}
+
 export interface LoaderBaseProps {
   request: Request;
+  params: EndpointParams;
 }
 
 export interface PlaylistLoaderData {
@@ -49,6 +59,10 @@ export interface profileLoaderProps {
   request: Request;
 }
 
+export interface ListLoaderProps {
+  params: {};
+  request: Request;
+}
 
 export interface DiscographyLoaderData {
   collections: Awaited<Collection[]>;
