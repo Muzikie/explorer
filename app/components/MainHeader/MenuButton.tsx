@@ -1,13 +1,13 @@
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
-import type { MenuButtonType } from './types';
+import type { MenuButtonProps } from './types';
 
 const classNames = {
 	Open: '-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700',
 	Close: '-m-2.5 rounded-md p-2.5 text-gray-700'
 };
 
-const MenuButton = ({ action, setMobileMenuOpen }: MenuButtonType) => {
+const MenuButton = ({ action, setMobileMenuOpen }: MenuButtonProps) => {
 	return (
 		<button
 			type="button"
