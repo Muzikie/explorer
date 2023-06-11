@@ -70,6 +70,20 @@ export interface Playlist extends BaseEntity {
   meta: string;
 }
 
+export interface Transaction {
+  id: string;
+  moduleCommand: string;
+  nonce: string;
+  fee: string;
+  sender: {
+    address: string;
+    publicKey: string;
+    name?: string;
+  };
+}
+
+export type Entity = Transaction | Audio | Playlist | Profile | Collection;
+
 export interface CreateCommandParams extends BaseEntity {
   name: string;
   nickName: string;
@@ -81,6 +95,17 @@ export interface CreateCommandParams extends BaseEntity {
   bannerSignature: Buffer;
 }
 
-export interface EndpointParams {
-  params: Record<'offset' | 'limit' | 'sort' | 'audioID' | 'collectionID' | 'profileID', string>;
-};
+export type EndpointParams = Partial<Record<'offset' | 'limit' | 'sort' | 'audioID' | 'collectionID' | 'profileID' | 'transactionID', string>>;
+
+export interface MetaProps {
+  total: number;
+  offset: number;
+  count: number;
+}
+
+export interface EndpointResult<T> {
+  data: T;
+  meta: MetaProps;
+}
+
+export type AwaitedEndpointResult<T> = Promise<EndpointResult<T>>;

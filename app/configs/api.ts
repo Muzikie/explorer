@@ -2,6 +2,7 @@ import config from '../../api.config.json';
 
 export const API_URLS = config;
 export const API_VERSION = 'v3';
+export const PAGE_SIZE = 10;
 export const HTTP_STATUS = {
   OK: { CODE: 200, MESSAGE: 'OK' },
   CREATED: { CODE: 201, MESSAGE: 'Created' },
