@@ -10,7 +10,7 @@ import {
 } from "@remix-run/react";
 import styles from "./tailwind.css";
 
-import MainHeader from '~/components/header';
+import MainHeader from '~/components/MainHeader';
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: styles },
