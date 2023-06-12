@@ -5,9 +5,9 @@ import { Link } from '@remix-run/react';
 import { PAGE_SIZE } from '~/configs';
 import type { MetaProps } from '~/configs';
 import type {
-	GeneratePageNumbers,
-	DirectionButtonProps,
-	NumberButtonProps,
+  GeneratePageNumbers,
+  DirectionButtonProps,
+  NumberButtonProps,
 } from './types';
 
 const generatePageNumbers: GeneratePageNumbers = (totalPages, currentPage)=> {
@@ -31,54 +31,54 @@ const generatePageNumbers: GeneratePageNumbers = (totalPages, currentPage)=> {
 };
 
 const DirectionButton = ({ total, current, direction }: DirectionButtonProps) => {
-	const location = useLocation();
-	const toPage = direction === 'next' ? Math.min(current, total - 1) : Math.max(current - 2, 0);
-	const to = `${location.pathname}?offset=${toPage * PAGE_SIZE}&limit=${PAGE_SIZE}`;
-	const borderClass = direction === 'next' ? 'rounded-r-md' : 'rounded-l-md';
-	const className = `relative inline-flex items-center ${borderClass} px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`;
-	const Icon = direction === 'next' ? ChevronRightIcon : ChevronLeftIcon;
+  const location = useLocation();
+  const toPage = direction === 'next' ? Math.min(current, total - 1) : Math.max(current - 2, 0);
+  const to = `${location.pathname}?offset=${toPage * PAGE_SIZE}&limit=${PAGE_SIZE}`;
+  const borderClass = direction === 'next' ? 'rounded-r-md' : 'rounded-l-md';
+  const className = `relative inline-flex items-center ${borderClass} px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`;
+  const Icon = direction === 'next' ? ChevronRightIcon : ChevronLeftIcon;
 
-	return (
-		<Link
-			to={to}
-			className={className}
-		>
-			<span className="sr-only">Next</span>
-			<Icon className="h-5 w-5" aria-hidden="true" />
-		</Link>
-	);
+  return (
+    <Link
+      to={to}
+      className={className}
+    >
+      <span className="sr-only">Next</span>
+      <Icon className="h-5 w-5" aria-hidden="true" />
+    </Link>
+  );
 };
 
 const NumberButton = ({ page, current }: NumberButtonProps) => {
-	const location = useLocation();
-	const activeColors = 'bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
-	const inactiveColors = 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0';
-	const to = `${location.pathname}?offset=${(page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}`;
+  const location = useLocation();
+  const activeColors = 'bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
+  const inactiveColors = 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0';
+  const to = `${location.pathname}?offset=${(page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}`;
 
-	return (
-		<Link
-			to={to}
-			aria-current="page"
-			className={`relative z-10 inline-flex items-center px-4 py-2 text-sm focus:z-20 font-semibold ${page === current ? activeColors : inactiveColors}`}
-		>
-			{page}
-		</Link>
-	);
+  return (
+    <Link
+      to={to}
+      aria-current="page"
+      className={`relative z-10 inline-flex items-center px-4 py-2 text-sm focus:z-20 font-semibold ${page === current ? activeColors : inactiveColors}`}
+    >
+      {page}
+    </Link>
+  );
 };
 
 const Ellipsis = () => (
-	<span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
+  <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
 		...
-	</span>
+  </span>
 );
 
 
 const Pagination = ({
-	meta
+  meta
 }: { meta: MetaProps }) =>{
-	const totalPages = Math.ceil(meta.total / PAGE_SIZE);
-	const currentPage = Math.ceil((meta.offset + 1) / meta.count);
-	const pageList = generatePageNumbers(totalPages, currentPage);
+  const totalPages = Math.ceil(meta.total / PAGE_SIZE);
+  const currentPage = Math.ceil((meta.offset + 1) / meta.count);
+  const pageList = generatePageNumbers(totalPages, currentPage);
 
   return (
     <nav className="flex items-center justify-between border-t border-gray-200 bg-white py-3">
@@ -92,17 +92,17 @@ const Pagination = ({
         <div>
           <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
             <DirectionButton current={currentPage} total={totalPages} direction="prev" />
-						{
-							pageList.map((page, index) => {
-								if (index < 3) {
-									return (<NumberButton key={index} current={currentPage} page={page} />);
-								}
-								if (pageList.length === 7 && index === 3) {
-									return (<Ellipsis key={index} />);
-								}
-								return (<NumberButton key={index} current={currentPage} page={page} />);
-							})
-						}
+            {
+              pageList.map((page, index) => {
+                if (index < 3) {
+                  return (<NumberButton key={index} current={currentPage} page={page} />);
+                }
+                if (pageList.length === 7 && index === 3) {
+                  return (<Ellipsis key={index} />);
+                }
+                return (<NumberButton key={index} current={currentPage} page={page} />);
+              })
+            }
             <DirectionButton current={currentPage} total={totalPages} direction="next" />
           </nav>
         </div>

@@ -60,21 +60,21 @@ export interface LoaderBaseProps {
 }
 
 export interface collectionsLoaderParams {
-  params: {};
+  params: Record<string, never>;
   request: Request;
 }
 
 export interface playlistLoaderParams {
-  params: {};
+  params: Record<string, never>;
   request: Request;
 }
 
 export interface profileLoaderParams {
-  params: {};
+  params: Record<string, never>;
   request: Request;
 }
 
 export interface ListLoaderProps {
-  params: {};
+  params: Record<string, never>;
   request: Request;
 }

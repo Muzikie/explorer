@@ -1,11 +1,11 @@
-import type { NetworkStatus } from "~/configs";
+import type { NetworkStatus } from '~/configs';
 
 const NetworkDetails = ({ stats }: { stats: NetworkStatus }) => {
-	const dataSet = [
-		{ value: stats.data.chainID, title: 'Chain ID' },
-		{ value: stats.data.height, title: 'Current height' },
-		{ value: stats.data.networkVersion, title: 'Network version' },
-	];
+  const dataSet = [
+    { value: stats.data.chainID, title: 'Chain ID' },
+    { value: stats.data.height, title: 'Current height' },
+    { value: stats.data.networkVersion, title: 'Network version' },
+  ];
   return (
     <div className="relative isolate overflow-hidden bg-gray-50 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

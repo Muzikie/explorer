@@ -12,8 +12,8 @@ import NetworkDetails from '~/components/NetworkDetails';
 
 export const meta: V2_MetaFunction = () => {
   return [
-    { title: "Muzikie explorer" },
-    { name: "description", content: "Welcome to Muzikie network explorer!" },
+    { title: 'Muzikie explorer' },
+    { name: 'description', content: 'Welcome to Muzikie network explorer!' },
   ];
 };
 

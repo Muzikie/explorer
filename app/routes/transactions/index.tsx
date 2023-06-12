@@ -16,9 +16,9 @@ import TransactionRow from '~/components/entity/TransactionRow';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
-  const limit = url.searchParams.get("limit");
-  const offset = url.searchParams.get("offset");
-  const transactionID = url.searchParams.get("transactionID");
+  const limit = url.searchParams.get('limit');
+  const offset = url.searchParams.get('offset');
+  const transactionID = url.searchParams.get('transactionID');
   const params: Record<string, string|null> = {
     transactionID,
     limit,
