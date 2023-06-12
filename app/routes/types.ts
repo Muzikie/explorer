@@ -27,6 +27,10 @@ export interface BlocksLoaderData extends LoaderData<Block> {
   data: Awaited<Block[]>;
 }
 
+export interface AudiosLoaderData extends LoaderData<Audio> {
+  data: Awaited<Audio[]>;
+}
+
 export interface PlaylistLoaderData {
   playlist: Awaited<Playlist>;
   audios: Awaited<Audio[]>;

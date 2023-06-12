@@ -51,6 +51,11 @@ export interface Profile extends BaseEntity {
 export interface Audio extends BaseEntity {
   genre: number[];
   collectionID: string;
+  collection: {
+    collectionType: string;
+    releaseYear: number;
+    name: string;
+  };
   owners: LoyaltyOwner[];
   releaseYear: string;
   audioID: string;
