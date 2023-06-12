@@ -27,22 +27,21 @@ export const loader = async ({ request }: ListLoaderProps) => {
   const blocks = await getBlocks({ params });
 
   return json<BlocksLoaderData>({
-    blocks: blocks.data,
-    meta: blocks.meta,
+    ...blocks,
     params,
   });
 };
 
 const BlocksScreen = () => {
   const {
-    blocks,
+    data,
     meta,
   } = useLoaderData() as BlocksLoaderData;
 
   return (
     <section className="relative isolate flex items-center gap-x-6 mx-auto max-w-7xl overflow-hidden px-6 py-2.5 sm:px-3.5">
       <List
-        items={blocks}
+        items={data}
         meta={meta}
         rowComponent={BlockRow}
       />

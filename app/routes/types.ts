@@ -4,45 +4,33 @@ import type {
   Profile,
   Playlist,
   Transaction,
+  Block,
   EndpointParams,
   MetaProps,
 } from '~/configs';
 
-
-export interface CollectionLoaderData {
-  collection: Awaited<Collection>;
-  profile: Awaited<Profile>;
-  audios: Awaited<Audio[]>;
-  id: number;
-}
-
-export interface collectionLoaderProps {
-  params: {
-    id: number;
-  };
-}
-
-export interface TransactionLoaderData {
-  transactions: Awaited<Transaction[]>;
+export interface LoaderData<T> {
+  data: Awaited<T[]>;
   meta: MetaProps;
   params: EndpointParams;
 }
 
-export interface LoaderBaseProps {
-  request: Request;
-  params: EndpointParams;
+export interface TransactionsLoaderData extends LoaderData<Transaction> {
+  data: Awaited<Transaction[]>;
+}
+
+export interface CollectionsLoaderData extends LoaderData<Collection> {
+  data: Awaited<Collection[]>;
+}
+
+export interface BlocksLoaderData extends LoaderData<Block> {
+  data: Awaited<Block[]>;
 }
 
 export interface PlaylistLoaderData {
   playlist: Awaited<Playlist>;
   audios: Awaited<Audio[]>;
   id: number;
-}
-
-export interface playlistLoaderParams {
-  params: {
-    id: number;
-  };
 }
 
 export interface ProfileLoaderData {
@@ -52,24 +40,27 @@ export interface ProfileLoaderData {
   id: string;
 }
 
-export interface profileLoaderProps {
-  params: {
-    id: string;
-  };
+export interface LoaderBaseProps {
+  request: Request;
+  params: EndpointParams;
+}
+
+export interface collectionsLoaderParams {
+  params: {};
+  request: Request;
+}
+
+export interface playlistLoaderParams {
+  params: {};
+  request: Request;
+}
+
+export interface profileLoaderParams {
+  params: {};
   request: Request;
 }
 
 export interface ListLoaderProps {
   params: {};
   request: Request;
-}
-
-export interface DiscographyLoaderData {
-  collections: Awaited<Collection[]>;
-  audios: Awaited<Audio[]>;
-}
-
-export interface DiscographyProps {
-  audios: Audio[];
-  collections: Collection[];
 }

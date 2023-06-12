@@ -9,7 +9,7 @@ import {
 } from '~/models/entity.server';
 import type {
   ListLoaderProps,
-  TransactionLoaderData,
+  TransactionsLoaderData,
 } from '../types';
 import List from '~/components/common/List';
 import TransactionRow from '~/components/entity/TransactionRow';
@@ -26,23 +26,22 @@ export const loader = async ({ request }: ListLoaderProps) => {
   };
   const transactions = await getTransactions({ params });
 
-  return json<TransactionLoaderData>({
-    transactions: transactions.data,
-    meta: transactions.meta,
+  return json<TransactionsLoaderData>({
+    ...transactions,
     params,
   });
 };
 
 const TransactionsScreen = () => {
   const {
-    transactions,
+    data,
     meta,
-  } = useLoaderData() as TransactionLoaderData;
+  } = useLoaderData() as TransactionsLoaderData;
 
   return (
     <section className="relative isolate flex items-center gap-x-6 mx-auto max-w-7xl overflow-hidden px-6 py-2.5 sm:px-3.5">
       <List
-        items={transactions}
+        items={data}
         meta={meta}
         rowComponent={TransactionRow}
       />
