@@ -2,8 +2,6 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react';
 import { Link } from '@remix-run/react';
 
-import Banner from '~/components/common/Banner';
-import NetworkDetails from '~/components/NetworkDetails';
 import MenuButton from './MenuButton';
 
 const menuItems = [
@@ -72,7 +70,6 @@ const MainHeader = () => {
           </div>
         </Dialog.Panel>
       </Dialog>
-      <Banner content={<NetworkDetails />} />
     </header>
   )
 }

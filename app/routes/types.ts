@@ -7,6 +7,8 @@ import type {
   Block,
   EndpointParams,
   MetaProps,
+  Subscription,
+  NetworkStatus,
 } from '~/configs';
 
 export interface LoaderData<T> {
@@ -29,6 +31,14 @@ export interface BlocksLoaderData extends LoaderData<Block> {
 
 export interface AudiosLoaderData extends LoaderData<Audio> {
   data: Awaited<Audio[]>;
+}
+
+export interface SubscriptionsLoaderData extends LoaderData<Subscription> {
+  data: Awaited<Subscription[]>;
+}
+
+export interface HomeLoaderData {
+  networkStatus: Awaited<NetworkStatus>;
 }
 
 export interface PlaylistLoaderData {
