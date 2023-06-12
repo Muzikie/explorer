@@ -65,6 +65,16 @@ export interface Audio extends BaseEntity {
   fit: string[];
 }
 
+export interface Subscription {
+  subscriptionID: string;
+  creatorAddress: string;
+  maxMembers: number;
+  streams: string;
+  price: string;
+  consumable: string;
+  members: { address: string }[]
+}
+
 export interface Playlist extends BaseEntity {
   playlistID: string;
   owners: LoyaltyOwner[];

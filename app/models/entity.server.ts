@@ -1,5 +1,6 @@
 import type {
   NetworkStatus,
+  Subscription,
   Collection,
   Profile,
   Audio,
@@ -36,6 +37,10 @@ export async function getTransactions({ params }: { params: EndpointParams }): A
 
 export async function getBlocks({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Block>> {
   return getList('blocks', params);
+}
+
+export async function getSubscriptions({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Subscription>> {
+  return getList('subscriptions', params);
 }
 
 export async function getNetworkStatus(): Promise<NetworkStatus> {
