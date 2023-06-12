@@ -70,16 +70,39 @@ export interface Playlist extends BaseEntity {
   meta: string;
 }
 
+export interface Account {
+  address?: string;
+  publicKey?: string;
+  name?: string;
+};
+
 export interface Transaction {
   id: string;
   moduleCommand: string;
   nonce: string;
   fee: string;
-  sender: {
-    address: string;
-    publicKey: string;
-    name?: string;
-  };
+  sender: Account;
+}
+
+export interface Block {
+  id: string;
+  timestamp: number;
+  height: number;
+  previousBlockID: string;
+  generator: Account;
+  transactionRoot: string;
+  assetRoot: string;
+  stateRoot: string;
+  maxHeightPrevoted: number;
+  numberOfTransactions: number;
+  numberOfAssets: number;
+  numberOfEvents: number;
+  totalForged: number;
+  totalBurnt: number;
+  networkFee: number;
+  signature: string;
+  reward: number;
+  isFinal: boolean;
 }
 
 export type Entity = Transaction | Audio | Playlist | Profile | Collection;
@@ -95,7 +118,11 @@ export interface CreateCommandParams extends BaseEntity {
   bannerSignature: Buffer;
 }
 
-export type EndpointParams = Partial<Record<'offset' | 'limit' | 'sort' | 'audioID' | 'collectionID' | 'profileID' | 'transactionID', string>>;
+export type EndpointParams = Partial<Record<
+  'offset' | 'limit' | 'sort'
+  | 'audioID' | 'collectionID' | 'profileID'
+  | 'transactionID' | 'blockID',
+string>>;
 
 export interface MetaProps {
   total: number;
@@ -106,6 +133,20 @@ export interface MetaProps {
 export interface EndpointResult<T> {
   data: T;
   meta: MetaProps;
+}
+
+export interface NetworkStatus {
+  data: {
+    networkVersion: string;
+    chainID: string;
+    height: number;
+    finalizedHeight: number;
+  },
+  meta: {
+    lastUpdate: number;
+    lastBlockHeight: number;
+    lastBlockID: string;
+  }
 }
 
 export type AwaitedEndpointResult<T> = Promise<EndpointResult<T>>;

@@ -1,4 +1,13 @@
-import type{ Collection, Profile, Audio, Transaction, EndpointParams, AwaitedEndpointResult } from '~/configs/types';
+import type {
+  NetworkStatus,
+  Collection,
+  Profile,
+  Audio,
+  Block,
+  Transaction,
+  EndpointParams,
+  AwaitedEndpointResult,
+} from '~/configs/types';
 import { API_URLS, API_VERSION } from '~/configs/api';
 import { removeNullValues } from '~/helpers/helpers';
 
@@ -23,4 +32,12 @@ export async function getProfiles({ params }: { params: EndpointParams }): Await
 
 export async function getTransactions({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Transaction>> {
   return getList('transactions', params);
+}
+
+export async function getBlocks({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Block>> {
+  return getList('blocks', params);
+}
+
+export async function getNetworkStatus(): Promise<NetworkStatus> {
+  return getList('network/status', {});
 }
