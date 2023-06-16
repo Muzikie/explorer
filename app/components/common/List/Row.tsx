@@ -1,7 +1,7 @@
 import type { RowProps, ColumnProps } from './types';
 
 const Column = ({ data, className }: ColumnProps) => (
-	<div className={`px-6 py-4 text-gray-500 ${className}`}>
+	<div className={`px-6 py-4 text-main-purple ${className}`}>
 		{data}
 	</div>
 );
@@ -9,7 +9,7 @@ const Column = ({ data, className }: ColumnProps) => (
 const Row = <T,>({ data, itemConfig }: RowProps<T>) => {
 	const configs = itemConfig(data);
 	return (
-		<div className="flex justify-between gap-x-6 py-5 border-b-2 bg-rose-50 border-b hover:bg-rose-100">
+		<div className="flex justify-between gap-x-6 py-5 text-base font-light hover:font-semibold mb-1 rounded-3xl cursor-pointer">
 			{
 				configs.map((config, index) => (
 					<Column

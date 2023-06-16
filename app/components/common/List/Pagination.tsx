@@ -35,7 +35,7 @@ const DirectionButton = ({ total, current, direction }: DirectionButtonProps) =>
 	const toPage = direction === 'next' ? Math.min(current, total - 1) : Math.max(current - 2, 0);
 	const to = `${location.pathname}?offset=${toPage * PAGE_SIZE}&limit=${PAGE_SIZE}`;
 	const borderClass = direction === 'next' ? 'rounded-r-md' : 'rounded-l-md';
-	const className = `relative inline-flex items-center ${borderClass} px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0`;
+	const className = `relative inline-flex items-center ${borderClass} px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:pale-beige focus:z-20 focus:outline-offset-0`;
 	const Icon = direction === 'next' ? ChevronRightIcon : ChevronLeftIcon;
 
 	return (
@@ -51,8 +51,8 @@ const DirectionButton = ({ total, current, direction }: DirectionButtonProps) =>
 
 const NumberButton = ({ page, current }: NumberButtonProps) => {
 	const location = useLocation();
-	const activeColors = 'bg-fuchsia-950 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
-	const inactiveColors = 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0';
+	const activeColors = 'bg-main-purple text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
+	const inactiveColors = 'text-main-purple ring-1 ring-inset ring-gray-300 hover:pale-beige focus:z-20 focus:outline-offset-0';
 	const to = `${location.pathname}?offset=${(page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}`;
 
 	return (
@@ -81,10 +81,10 @@ const Pagination = ({
 	const pageList = generatePageNumbers(totalPages, currentPage);
 
 	return (
-		<nav className="flex items-center justify-between border-t border-gray-200 bg-rose-50 py-3">
+		<nav className="flex items-center justify-between border-t py-8 rounded-3xl border-gray-200 bg-light-beige py-3">
 			<div className="flex flex-1 items-center justify-center sm:justify-between">
 				<div className="hidden sm:flex pl-6">
-					<p className="text-sm text-gray-700">
+					<p className="text-base text-main-purple">
 						Showing <span className="font-medium">{meta.offset}</span> to <span className="font-medium">{meta.offset + meta.count}</span> of{' '}
 						<span className="font-medium">{meta.count}</span> results
 					</p>

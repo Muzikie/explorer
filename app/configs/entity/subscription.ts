@@ -3,7 +3,7 @@ import type { Subscription } from '~/configs';
 
 const subscriptionHeader = (data: Subscription): ListHeader => [
 	{
-		className: "font-medium whitespace-nowrap",
+		className: "whitespace-nowrap",
 		title: 'ID',
 		value: data ? data.subscriptionID : '',
 	},

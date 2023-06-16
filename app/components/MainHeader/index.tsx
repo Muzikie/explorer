@@ -16,12 +16,12 @@ const MainHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-main-beige z-50 mb-28">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between pt-14 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Muzikie</span>
-            <img className="h-8 w-auto" src="./images/logo.svg" alt="Muzikie explorer" />
+            <span className="sr-only">Muzikie explorer</span>
+            <img className="h-11 w-auto" src="./images/full-logo.svg" alt="Muzikie explorer" />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -30,7 +30,7 @@ const MainHeader = () => {
         <nav className="hidden lg:flex lg:gap-x-12">
 					{
 						menuItems.map((item) => (
-							<Link key={item.name} to={item.to} className="text-sm font-semibold leading-6 text-gray-900">
+							<Link key={item.name} to={item.to} className="text-xl font-normal leading-6 text-main-purple">
 								{item.name}
 							</Link>
 						))

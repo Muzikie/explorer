@@ -18,7 +18,7 @@ const List = ({
 		<section className="container divide-y divide-gray-100">
 			<div className="w-full text-sm text-left text-fuchsia-50">
 				<Header itemConfig={itemConfig} />
-				<main className='bg-pink-300'>
+				<main>
 					{items.map((item, index) => {
 						return (<Row data={item} itemConfig={itemConfig} key={index} />);
 					})}

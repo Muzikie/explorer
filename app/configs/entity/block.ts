@@ -4,7 +4,7 @@ import { truncateString } from '~/helpers/formatters';
 
 const blockHeader = (data: Block): ListHeader => [
 	{
-		className: "font-medium whitespace-nowrap",
+		className: "whitespace-nowrap",
 		title: 'ID',
 		value: data ? `${truncateString(data.id)}` : '',
 	},

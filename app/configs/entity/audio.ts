@@ -3,22 +3,22 @@ import type { Audio } from '~/configs';
 
 const audioHeader = (data: Audio): ListHeader => [
 	{
-		className: "font-medium text-gray-500 whitespace-nowrap",
+		className: "whitespace-nowrap",
 		title: 'audioID',
 		value: data ? data.audioID : '',
 	},
 	{
-		className: "text-center text-gray-500",
+		className: "text-center",
 		title: 'creatorAddress',
 		value: data ? data.creatorAddress : '',
 	},
 	{
-		className: "text-center text-gray-500",
+		className: "text-center",
 		title: 'Collection name',
 		value: data ? data.collection.name : '',
 	},
 	{
-		className: "text-center text-gray-500",
+		className: "text-center",
 		title: 'name',
 		value: data ? data.name : '',
 	}

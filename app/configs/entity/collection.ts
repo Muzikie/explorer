@@ -3,7 +3,7 @@ import type { Collection } from '~/configs';
 
 const collectionHeader = (data: Collection): ListHeader => [
 	{
-		className: "font-medium whitespace-nowrap",
+		className: "whitespace-nowrap",
 		title: 'collectionID',
 		value: data ? data.collectionID : '',
 	},

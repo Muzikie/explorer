@@ -3,7 +3,7 @@ import type { Transaction } from '~/configs';
 
 const transactionHeader = (data: Transaction): ListHeader => [
 	{
-		className: "font-medium whitespace-nowrap",
+		className: "whitespace-nowrap",
 		title: 'ID',
 		value: data ? data.id : '',
 	},

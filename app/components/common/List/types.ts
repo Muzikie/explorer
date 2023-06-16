@@ -13,6 +13,10 @@ export interface NumberButtonProps {
 	current: number;
 }
 
+export interface EmptyProps {
+	emptyTitle: string
+}
+
 export interface ListHeaderItem {
 	title: string;
 	className: string;
