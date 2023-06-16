@@ -12,14 +12,14 @@ import type {
   AudiosLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import AudioRow from '~/components/entity/AudioRow';
+import audioDataConfig from '~/configs/entity/audio';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
   const limit = url.searchParams.get("limit");
   const offset = url.searchParams.get("offset");
   const audioID = url.searchParams.get("audioID");
-  const params: Record<string, string|null> = {
+  const params: Record<string, string | null> = {
     audioID,
     limit,
     offset
@@ -41,9 +41,10 @@ const AudiosScreen = () => {
   return (
     <section className="relative isolate flex items-center gap-x-6 mx-auto max-w-7xl overflow-hidden px-6 py-2.5 sm:px-3.5">
       <List
+        emptyTitle="No audio found."
+        itemConfig={audioDataConfig}
         items={data}
         meta={meta}
-        rowComponent={AudioRow}
       />
     </section>
   );
