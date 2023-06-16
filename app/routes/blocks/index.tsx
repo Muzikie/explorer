@@ -16,9 +16,9 @@ import blockDataConfig from '~/configs/entity/block';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
-  const limit = url.searchParams.get("limit");
-  const offset = url.searchParams.get("offset");
-  const blockID = url.searchParams.get("blockID");
+  const limit = url.searchParams.get('limit');
+  const offset = url.searchParams.get('offset');
+  const blockID = url.searchParams.get('blockID');
   const params: Record<string, string | null> = {
     blockID,
     limit,

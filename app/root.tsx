@@ -1,5 +1,5 @@
 // import { cssBundleHref } from "@remix-run/css-bundle";
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction } from '@remix-run/node';
 import {
   Links,
   LiveReload,
@@ -7,13 +7,13 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-} from "@remix-run/react";
-import styles from "./tailwind.css";
+} from '@remix-run/react';
+import styles from './tailwind.css';
 
 import MainHeader from '~/components/MainHeader';
 
 export const links: LinksFunction = () => [
-  { rel: "stylesheet", href: styles },
+  { rel: 'stylesheet', href: styles },
   // { rel: "stylesheet", href: cssBundleHref },
   { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
   { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap' },

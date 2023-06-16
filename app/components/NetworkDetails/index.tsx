@@ -1,4 +1,4 @@
-import type { NetworkStatus } from "~/configs";
+import type { NetworkStatus } from '~/configs';
 
 const NetworkDetails = ({ stats }: { stats: NetworkStatus }) => {
   const dataSet = [

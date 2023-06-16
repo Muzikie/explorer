@@ -89,7 +89,7 @@ export interface Account {
   address?: string;
   publicKey?: string;
   name?: string;
-};
+}
 
 export interface Transaction {
   id: string;
