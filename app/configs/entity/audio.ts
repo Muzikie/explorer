@@ -7,23 +7,23 @@ const audioHeader = (data: Audio): ListHeader => (
 		items: [
 			{
 				className: 'whitespace-nowrap text-left ps-6',
-				title: 'audioID',
-				value: data ? data.audioID : '',
+				title: 'ID',
+				value: data?.audioID ?? '',
 			},
 			{
 				className: 'text-left text-left',
-				title: 'creatorAddress',
-				value: data ? data.creatorAddress : '',
+				title: 'Creator account',
+				value: data?.creatorAddress ?? '',
 			},
 			{
 				className: 'text-left text-left',
 				title: 'Collection name',
-				value: data ? data.collection.name : '',
+				value: data?.collection.name ?? '',
 			},
 			{
 				className: 'text-right text-left pe-6',
-				title: 'name',
-				value: data ? data.name : '',
+				title: 'Audio name',
+				value: data?.name ?? '',
 			}
 		],
 	}

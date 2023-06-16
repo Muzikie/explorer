@@ -7,23 +7,23 @@ const collectionHeader = (data: Collection): ListHeader => (
 		items: [
 			{
 				className: 'whitespace-nowrap tex-left ps-6',
-				title: 'collectionID',
-				value: data ? data.collectionID : '',
+				title: 'ID',
+				value: data?.collectionID ?? '',
 			},
 			{
 				className: 'text-left',
-				title: 'creatorAddress',
-				value: data ? data.creatorAddress : '',
+				title: 'Creator account',
+				value: data?.creatorAddress ?? '',
 			},
 			{
 				className: 'text-left',
-				title: 'Name',
-				value: data ? data.name : '',
+				title: 'Collection name',
+				value: data?.name ?? '',
 			},
 			{
 				className: 'text-right pe-6',
-				title: 'name',
-				value: data ? data.releaseYear : '',
+				title: 'Release year',
+				value: data?.releaseYear ?? '',
 			}
 		],
 });

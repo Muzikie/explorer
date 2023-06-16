@@ -8,22 +8,22 @@ const subscriptionHeader = (data: Subscription): ListHeader => (
 			{
 				className: 'whitespace-nowrap text-left ps-6',
 				title: 'ID',
-				value: data ? data.subscriptionID : '',
+				value: data?.subscriptionID ?? '',
 			},
 			{
 				className: 'text-left',
 				title: 'Max members',
-				value: data ? data.maxMembers : '',
+				value: data?.maxMembers ?? '',
 			},
 			{
 				className: 'text-left',
 				title: 'Price',
-				value: data ? data.price : '',
+				value: data?.price ?? '',
 			},
 			{
 				className: 'text-right pe-6',
 				title: 'Streams',
-				value: data ? data.streams : '',
+				value: data?.streams ?? '',
 			}
 		],
 	}

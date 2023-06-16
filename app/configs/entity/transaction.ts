@@ -8,22 +8,22 @@ const transactionHeader = (data: Transaction): ListHeader => (
 			{
 				className: 'whitespace-nowrap text-left ps-2',
 				title: 'ID',
-				value: data ? data.id : '',
+				value: data?.id ?? '',
 			},
 			{
 				className: 'text-left',
-				title: 'Address',
-				value: data ? `${data.sender.address}` : '',
+				title: 'Sender address',
+				value: data?.sender?.address ?? '',
 			},
 			{
 				className: 'text-left',
 				title: 'Fee',
-				value: data ? data.fee : '',
+				value: data?.fee ?? '',
 			},
 			{
 				className: 'text-right pe-6',
 				title: 'Module:command',
-				value: data ? data.moduleCommand : '',
+				value: data?.moduleCommand ?? '',
 			}
 		],
 	}

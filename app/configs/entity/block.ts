@@ -8,22 +8,22 @@ const blockHeader = (data: Block): ListHeader => ({
 		{
 			className: 'whitespace-nowrap text-left ps-6',
 			title: 'ID',
-			value: data ? `${truncateString(data.id)}` : '',
+			value: truncateString(data?.id ?? ''),
 		},
 		{
 			className: 'text-left truncate col-span-2',
-			title: 'Address',
-			value: data ? `${data.generator.address}` : '',
+			title: 'Generator address',
+			value: data?.generator?.address ?? '',
 		},
 		{
 			className: 'text-left',
-			title: 'Number Of transactions',
-			value: data ? data.numberOfTransactions : '',
+			title: 'Number of transactions',
+			value: data?.numberOfTransactions ?? '',
 		},
 		{
 			className: 'text-right pe-6',
-			title: 'height',
-			value: data ? data.height : '',
+			title: 'Height',
+			value: data?.height ?? '',
 		}
 	]
 });
