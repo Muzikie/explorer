@@ -1,19 +1,31 @@
 import type { ListProps } from './types';
 import Pagination from './Pagination';
+import Empty from './Empty';
+import Header from './Header';
+import Row from './Row';
 
 const List = ({
+  itemConfig,
+  emptyTitle,
   items,
   meta,
-  rowComponent
 }: ListProps<any>) => {
-  const Row = rowComponent;
+  if (items.length === 0) {
+    return (<Empty emptyTitle={emptyTitle} />)
+  }
+
   return (
     <section className="container divide-y divide-gray-100">
-      <ul>
-        {items.map((item, index) => (<Row data={item} key={index} />))}
-      </ul>
+      <div className="w-full text-sm text-left text-fuchsia-50">
+        <Header itemConfig={itemConfig} />
+        <main>
+          {items.map((item, index) => {
+            return (<Row data={item} itemConfig={itemConfig} key={index} />);
+          })}
+        </main>
+      </div>
       <Pagination meta={meta} />
-    </section>
+    </section >
   );
 };
 

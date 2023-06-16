@@ -7,13 +7,13 @@ const NetworkDetails = ({ stats }: { stats: NetworkStatus }) => {
     { value: stats.data.networkVersion, title: 'Network version' },
   ];
   return (
-    <div className="relative isolate overflow-hidden bg-gray-50 py-24 sm:py-32">
+    <div className="relative isolate overflow-hidden bg-light-beige py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
           {dataSet.map((set) => (
             <div key={set.title} className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base leading-7 text-gray-600">{set.title}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+              <dt className="text-base leading-7 text-main-purple">{set.title}</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-main-purple sm:text-5xl">
                 {set.value}
               </dd>
             </div>
