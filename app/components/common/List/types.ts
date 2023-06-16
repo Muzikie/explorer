@@ -23,7 +23,10 @@ export interface ListHeaderItem {
 	value: string|number|boolean;
 }
 
-export type ListHeader = ListHeaderItem[];
+export type ListHeader = {
+	gridClassName: string;
+	items: ListHeaderItem[]
+};
 
 type itemConfig<T> = (date?: T) => ListHeader
 
