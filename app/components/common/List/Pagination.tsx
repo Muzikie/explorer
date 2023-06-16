@@ -10,24 +10,24 @@ import type {
 	NumberButtonProps,
 } from './types';
 
-const generatePageNumbers: GeneratePageNumbers = (totalPages, currentPage)=> {
-  const pageNumbers = [];
+const generatePageNumbers: GeneratePageNumbers = (totalPages, currentPage) => {
+	const pageNumbers = [];
 
-  // Add the first three elements starting from the current page
-  for (let i = currentPage; i <= currentPage + 2; i++) {
-    if (i <= totalPages) {
-      pageNumbers.push(i);
-    }
-  }
+	// Add the first three elements starting from the current page
+	for (let i = currentPage; i <= currentPage + 2; i++) {
+		if (i <= totalPages) {
+			pageNumbers.push(i);
+		}
+	}
 
-  // Add the last four elements ending in the total pages
-  for (let i = totalPages - 3; i <= totalPages; i++) {
-    if (i > 0 && !pageNumbers.includes(i)) {
-      pageNumbers.push(i);
-    }
-  }
+	// Add the last four elements ending in the total pages
+	for (let i = totalPages - 3; i <= totalPages; i++) {
+		if (i > 0 && !pageNumbers.includes(i)) {
+			pageNumbers.push(i);
+		}
+	}
 
-  return pageNumbers.sort();
+	return pageNumbers.sort();
 };
 
 const DirectionButton = ({ total, current, direction }: DirectionButtonProps) => {
@@ -51,7 +51,7 @@ const DirectionButton = ({ total, current, direction }: DirectionButtonProps) =>
 
 const NumberButton = ({ page, current }: NumberButtonProps) => {
 	const location = useLocation();
-	const activeColors = 'bg-indigo-600 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
+	const activeColors = 'bg-fuchsia-950 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600';
 	const inactiveColors = 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0';
 	const to = `${location.pathname}?offset=${(page - 1) * PAGE_SIZE}&limit=${PAGE_SIZE}`;
 
@@ -75,23 +75,23 @@ const Ellipsis = () => (
 
 const Pagination = ({
 	meta
-}: { meta: MetaProps }) =>{
+}: { meta: MetaProps }) => {
 	const totalPages = Math.ceil(meta.total / PAGE_SIZE);
 	const currentPage = Math.ceil((meta.offset + 1) / meta.count);
 	const pageList = generatePageNumbers(totalPages, currentPage);
 
-  return (
-    <nav className="flex items-center justify-between border-t border-gray-200 bg-white py-3">
-      <div className="flex flex-1 items-center justify-center sm:justify-between">
-        <div className="hidden sm:flex">
-          <p className="text-sm text-gray-700">
-            Showing <span className="font-medium">{meta.offset}</span> to <span className="font-medium">{meta.offset + meta.count}</span> of{' '}
-            <span className="font-medium">{meta.count}</span> results
-          </p>
-        </div>
-        <div>
-          <nav className="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-            <DirectionButton current={currentPage} total={totalPages} direction="prev" />
+	return (
+		<nav className="flex items-center justify-between border-t border-gray-200 bg-rose-50 py-3">
+			<div className="flex flex-1 items-center justify-center sm:justify-between">
+				<div className="hidden sm:flex pl-6">
+					<p className="text-sm text-gray-700">
+						Showing <span className="font-medium">{meta.offset}</span> to <span className="font-medium">{meta.offset + meta.count}</span> of{' '}
+						<span className="font-medium">{meta.count}</span> results
+					</p>
+				</div>
+				<div>
+					<nav className="isolate inline-flex -space-x-px rounded-md shadow-sm pr-6" aria-label="Pagination">
+						<DirectionButton current={currentPage} total={totalPages} direction="prev" />
 						{
 							pageList.map((page, index) => {
 								if (index < 3) {
@@ -103,12 +103,12 @@ const Pagination = ({
 								return (<NumberButton key={index} current={currentPage} page={page} />);
 							})
 						}
-            <DirectionButton current={currentPage} total={totalPages} direction="next" />
-          </nav>
-        </div>
-      </div>
-    </nav>
-  )
+						<DirectionButton current={currentPage} total={totalPages} direction="next" />
+					</nav>
+				</div>
+			</div>
+		</nav>
+	)
 };
 
 export default Pagination;
