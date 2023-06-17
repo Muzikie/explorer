@@ -39,6 +39,8 @@ export interface SubscriptionsLoaderData extends LoaderData<Subscription> {
 
 export interface HomeLoaderData {
   networkStatus: Awaited<NetworkStatus>;
+  blocks: Awaited<Block[]>;
+  transactions: Awaited<Transaction[]>;
 }
 
 export interface PlaylistLoaderData {
