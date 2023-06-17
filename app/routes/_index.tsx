@@ -26,8 +26,14 @@ export const meta: V2_MetaFunction = () => {
 
 export const loader = async () => {
   const networkStatus = await getNetworkStatus();
-  const { data: transactions } = await getTransactions({ offset: 0, limit: 8 });
-  const { data: blocks } = await getBlocks({ offset: 0, limit: 8 });
+  const params = {
+    params: {
+      offset: '0',
+      limit: '5',
+    }
+  };
+  const { data: transactions } = await getTransactions(params);
+  const { data: blocks } = await getBlocks(params);
 
   return json<HomeLoaderData>({
     networkStatus,
