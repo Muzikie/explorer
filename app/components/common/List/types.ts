@@ -34,7 +34,7 @@ export interface ListProps<T> {
 	emptyTitle: string;
 	itemConfig: itemConfig<T>;
 	items: T[];
-	meta: MetaProps;
+	meta?: MetaProps;
 }
 
 export interface ListHeaderProps<T> {
