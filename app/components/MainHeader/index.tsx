@@ -3,6 +3,7 @@ import { Dialog } from '@headlessui/react';
 import { Link } from '@remix-run/react';
 
 import Logo from '~/components/common/Logo';
+import ThemeToggle from '~/components/ThemeToggle';
 import MenuButton from './MenuButton';
 
 const menuItems = [
@@ -27,7 +28,7 @@ const MainHeader = () => {
         <div className="flex lg:hidden">
           <MenuButton action="Open" setMobileMenuOpen={setMobileMenuOpen} />
         </div>
-        <nav className="hidden lg:flex lg:gap-x-12">
+        <nav className="hidden lg:flex lg:gap-x-12 items-center">
           {
             menuItems.map((item) => (
               <Link key={item.name} to={item.to} className="text-xl font-normal leading-6 text-main-purple dark:text-main-beige">
@@ -35,6 +36,7 @@ const MainHeader = () => {
               </Link>
             ))
           }
+          <ThemeToggle />
         </nav>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
