@@ -32,3 +32,8 @@ export const toBaseToken = (num: string): string =>
 export const truncateString = (address: string): string => {
   return address.replace(/^(.{6})(.+)?(.{5})$/, '$1...$3');
 };
+
+export const convertToken = (num: string, token?: string|undefined): string => {
+  const formatted = BigNumber(num).dividedBy(BigNumber(1E8)).toFixed(4);
+  return token ? `${formatted} ${token}` : formatted;
+};
