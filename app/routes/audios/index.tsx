@@ -39,7 +39,7 @@ const AudiosScreen = () => {
   } = useLoaderData() as AudiosLoaderData;
 
   return (
-    <section className="relative isolate flex items-center gap-x-6 mx-auto max-w-7xl overflow-hidden px-6 py-2.5 sm:px-3.5">
+    <section className="container m-auto">
       <List
         emptyTitle="No audio found."
         itemConfig={audioDataConfig}

@@ -8,7 +8,7 @@ const NetworkDetails = ({ stats }: { stats: NetworkStatus }) => {
   ];
   return (
     <div className="relative isolate overflow-hidden">
-      <div className="mx-auto max-w-7xl pt-24 pb-14 sm:pt-22 sm:pb-32 bg-light-beige dark:bg-main-purple rounded-3xl">
+      <div className="mx-auto pt-24 pb-14 sm:pt-22 sm:pb-32 bg-light-beige dark:bg-main-purple rounded-3xl">
         <section className="grid gap-x-8 gap-y-16 grid-cols-1 lg:grid-cols-3 text-center">
           <header className="col-span-1 lg:col-span-3 pb-10">
             <h4 className="text-xl text-main-purple dark:text-main-beige">Network information</h4>
