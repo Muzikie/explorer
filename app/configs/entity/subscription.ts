@@ -2,7 +2,7 @@ import type{ ListHeader } from '~/components/common/List/types';
 import type { Subscription } from '~/configs';
 import { truncateString } from '~/helpers/formatters';
 
-const subscriptionConfig = (data: Subscription): ListHeader => (
+export const subscriptionTableConfig = (data: Subscription): ListHeader => (
   {
     gridClassName: 'grid-cols-4',
     items: [
@@ -29,5 +29,3 @@ const subscriptionConfig = (data: Subscription): ListHeader => (
     ],
   }
 );
-
-export default subscriptionConfig;

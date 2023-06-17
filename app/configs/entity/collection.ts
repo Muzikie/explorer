@@ -1,7 +1,7 @@
 import type{ ListHeader } from '~/components/common/List/types';
 import type { Collection } from '~/configs';
 
-const collectionHeader = (data: Collection): ListHeader => (
+export const collectionTableConfig = (data: Collection): ListHeader => (
   {
     gridClassName: 'grid-cols-4',
     items: [
@@ -27,7 +27,3 @@ const collectionHeader = (data: Collection): ListHeader => (
       }
     ],
   });
-
-
-export default collectionHeader;
-

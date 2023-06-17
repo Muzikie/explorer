@@ -12,7 +12,7 @@ import type {
   AudiosLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import audioDataConfig from '~/configs/entity/audio';
+import { audioTableConfig } from '~/configs/entity/audio';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
@@ -42,7 +42,7 @@ const AudiosScreen = () => {
     <section className="container m-auto">
       <List
         emptyTitle="No audio found."
-        itemConfig={audioDataConfig}
+        itemConfig={audioTableConfig}
         items={data}
         meta={meta}
       />

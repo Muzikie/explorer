@@ -12,7 +12,7 @@ import type {
   BlocksLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import blockDataConfig from '~/configs/entity/block';
+import { blockTableConfig } from '~/configs/entity/block';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
@@ -42,7 +42,7 @@ const BlocksScreen = () => {
     <section className="container m-auto">
       <List
         emptyTitle="No block found."
-        itemConfig={blockDataConfig}
+        itemConfig={blockTableConfig}
         items={data}
         meta={meta}
       />
