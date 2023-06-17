@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react';
 import { Link } from '@remix-run/react';
 
+import Logo from '~/components/common/Logo';
 import MenuButton from './MenuButton';
 
 const menuItems = [
@@ -20,9 +21,7 @@ const MainHeader = () => {
       <nav className="mx-auto flex max-w-7xl items-center justify-between pt-14 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Muzikie explorer</span>
-            <img className="h-11 w-auto light:hidden" src="./images/full-logo-light.svg" alt="Muzikie explorer" />
-            <img className="h-11 w-auto dark:hidden" src="./images/full-logo-dark.svg" alt="Muzikie explorer" />
+            <Logo />
           </Link>
         </div>
         <div className="flex lg:hidden">
