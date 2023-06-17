@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { Dialog } from '@headlessui/react';
 import { Link } from '@remix-run/react';
 
+import Logo from '~/components/common/Logo';
+import ThemeToggle from '~/components/ThemeToggle';
 import MenuButton from './MenuButton';
 
 const menuItems = [
@@ -16,25 +18,25 @@ const MainHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   return (
-    <header className="bg-main-beige z-50 mb-28">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between pt-14 lg:px-8" aria-label="Global">
+    <header className="z-50 mb-28 container m-auto">
+      <nav className="mx-auto flex items-center justify-between pt-14 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link to="/" className="-m-1.5 p-1.5">
-            <span className="sr-only">Muzikie explorer</span>
-            <img className="h-11 w-auto" src="./images/full-logo.svg" alt="Muzikie explorer" />
+            <Logo />
           </Link>
         </div>
         <div className="flex lg:hidden">
           <MenuButton action="Open" setMobileMenuOpen={setMobileMenuOpen} />
         </div>
-        <nav className="hidden lg:flex lg:gap-x-12">
+        <nav className="hidden lg:flex lg:gap-x-12 items-center">
           {
             menuItems.map((item) => (
-              <Link key={item.name} to={item.to} className="text-xl font-normal leading-6 text-main-purple">
+              <Link key={item.name} to={item.to} className="text-xl font-normal leading-6 text-main-purple dark:text-main-beige">
                 {item.name}
               </Link>
             ))
           }
+          <ThemeToggle />
         </nav>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>

@@ -6,7 +6,7 @@ const Banner = ({
   dismiss, title, subtitle, content,
 }: BannerProps) => {
   return (
-    <div className="relative isolate flex items-center gap-x-6 mx-auto max-w-7xl overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+    <div className="relative isolate flex items-center gap-x-6 mx-auto overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
       {
         content || (
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">

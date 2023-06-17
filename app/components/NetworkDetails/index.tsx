@@ -7,18 +7,21 @@ const NetworkDetails = ({ stats }: { stats: NetworkStatus }) => {
     { value: stats.data.networkVersion, title: 'Network version' },
   ];
   return (
-    <div className="relative isolate overflow-hidden bg-light-beige py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
+    <div className="relative isolate overflow-hidden">
+      <div className="mx-auto pt-24 pb-14 sm:pt-22 sm:pb-32 bg-light-beige dark:bg-main-purple rounded-3xl">
+        <section className="grid gap-x-8 gap-y-16 grid-cols-1 lg:grid-cols-3 text-center">
+          <header className="col-span-1 lg:col-span-3 pb-10">
+            <h4 className="text-xl text-main-purple dark:text-main-beige">Network information</h4>
+          </header>
           {dataSet.map((set) => (
-            <div key={set.title} className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base leading-7 text-main-purple">{set.title}</dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-main-purple sm:text-5xl">
+            <main key={set.title} className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <h3 className="text-base text-main-purple dark:text-main-beige">{set.title}</h3>
+              <h4 className="font-semibold text-main-purple dark:text-main-beige sm:text-5xl">
                 {set.value}
-              </dd>
-            </div>
+              </h4>
+            </main>
           ))}
-        </dl>
+        </section>
       </div>
     </div>
   )

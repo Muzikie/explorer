@@ -15,8 +15,8 @@ const List = ({
   }
 
   return (
-    <section className="container divide-y divide-gray-100">
-      <div className="w-full text-sm text-left text-fuchsia-50">
+    <section className="container">
+      <div className="w-full text-sm text-left">
         <Header itemConfig={itemConfig} />
         <main>
           {items.map((item, index) => {

@@ -31,7 +31,7 @@ export default function Index() {
   } = useLoaderData() as HomeLoaderData;
 
   return (
-    <section>
+    <section className="container m-auto">
       <NetworkDetails stats={networkStatus} />
     </section>
   );
