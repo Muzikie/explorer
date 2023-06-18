@@ -5,44 +5,44 @@ import { useLoaderData } from '@remix-run/react';
 
 /* Internal dependencies */
 import {
-  getTransactions,
+  getBlocks,
 } from '~/models/entity.server';
 import type {
   ListLoaderProps,
-  TransactionsLoaderData,
-} from '../types';
+  BlocksLoaderData,
+} from './types';
 import List from '~/components/common/List';
-import { transactionTableConfig } from '~/configs/entity/transaction';
+import { blockTableConfig } from '~/configs/entity/block';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
   const limit = url.searchParams.get('limit');
   const offset = url.searchParams.get('offset');
-  const transactionID = url.searchParams.get('transactionID');
+  const blockID = url.searchParams.get('blockID');
   const params: Record<string, string | null> = {
-    transactionID,
+    blockID,
     limit,
     offset
   };
-  const transactions = await getTransactions({ params });
+  const blocks = await getBlocks({ params });
 
-  return json<TransactionsLoaderData>({
-    ...transactions,
+  return json<BlocksLoaderData>({
+    ...blocks,
     params,
   });
 };
 
-const TransactionsScreen = () => {
+const BlocksScreen = () => {
   const {
     data,
     meta,
-  } = useLoaderData() as TransactionsLoaderData;
+  } = useLoaderData() as BlocksLoaderData;
 
   return (
     <section className="container m-auto">
       <List
-        emptyTitle="No transactions found."
-        itemConfig={transactionTableConfig}
+        entity="block"
+        itemConfig={blockTableConfig}
         items={data}
         meta={meta}
       />
@@ -50,4 +50,4 @@ const TransactionsScreen = () => {
   );
 };
 
-export default TransactionsScreen;
+export default BlocksScreen;

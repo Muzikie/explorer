@@ -37,6 +37,11 @@ export interface SubscriptionsLoaderData extends LoaderData<Subscription> {
   data: Awaited<Subscription[]>;
 }
 
+export interface DetailsLoaderData<T> {
+  data: Awaited<T>;
+  id: string;
+}
+
 export interface HomeLoaderData {
   networkStatus: Awaited<NetworkStatus>;
   blocks: Awaited<Block[]>;
@@ -78,5 +83,10 @@ export interface profileLoaderParams {
 
 export interface ListLoaderProps {
   params: Record<string, never>;
+  request: Request;
+}
+
+export interface DetailsLoaderProps {
+  params: Record<string, string>;
   request: Request;
 }

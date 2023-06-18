@@ -1,3 +1,4 @@
+import type { Entity, EntityName } from '~/configs';
 import type { KeyValue } from './types';
 
 export const removeNullValues = (obj: KeyValue): KeyValue => {
@@ -10,3 +11,15 @@ export const removeNullValues = (obj: KeyValue): KeyValue => {
 
   return newObj;
 };
+
+const idMapper: Record<EntityName, string> = {
+  block: 'id',
+  transaction: 'id',
+  subscription: 'subscriptionID',
+  collection: 'collectionID',
+  audio: 'audioID',
+  profile: 'profileID',
+}
+
+export const getEntityId = (data: Entity, entity: EntityName): string =>
+  data[idMapper[entity]];

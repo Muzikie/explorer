@@ -16,6 +16,7 @@ import NetworkDetails from '~/components/NetworkDetails';
 import List from '~/components/common/List';
 import { transactionMiniTableConfig } from '~/configs/entity/transaction';
 import { blockMiniTableConfig } from '~/configs/entity/block';
+import { EntityName } from '~/configs';
 
 export const meta: V2_MetaFunction = () => {
   return [
@@ -56,7 +57,7 @@ export default function Index() {
         <section className="bg-light-beige dark:bg-main-purple px-8 rounded-3xl">
           <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest blocks</h2>
           <List
-            emptyTitle="No transactions found."
+            entity={EntityName.transaction}
             itemConfig={transactionMiniTableConfig}
             items={transactions}
           />
@@ -64,7 +65,7 @@ export default function Index() {
         <section className="bg-light-beige dark:bg-main-purple px-8 rounded-3xl">
           <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest Transactions</h2>
           <List
-            emptyTitle="No blocks found."
+            entity={EntityName.block}
             itemConfig={blockMiniTableConfig}
             items={blocks}
           />

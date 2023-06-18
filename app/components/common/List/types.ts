@@ -1,4 +1,4 @@
-import type { MetaProps } from '~/configs';
+import type { MetaProps, EntityName } from '~/configs';
 
 export type GeneratePageNumbers = (totalPages: number, currentPage: number) => number[];
 
@@ -14,7 +14,7 @@ export interface NumberButtonProps {
 }
 
 export interface EmptyProps {
-	emptyTitle: string
+	entity: string
 }
 
 export interface ListHeaderItem {
@@ -31,7 +31,7 @@ export type ListHeader = {
 type itemConfig<T> = (date?: T) => ListHeader
 
 export interface ListProps<T> {
-	emptyTitle: string;
+	entity: string;
 	itemConfig: itemConfig<T>;
 	items: T[];
 	meta?: MetaProps;
@@ -43,6 +43,7 @@ export interface ListHeaderProps<T> {
 
 export interface RowProps<T> {
 	data: T;
+	entity: EntityName;
 	itemConfig: (data: T) => ListHeader;
 }
 
