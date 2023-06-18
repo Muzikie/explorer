@@ -27,7 +27,7 @@ const generatePageNumbers: GeneratePageNumbers = (totalPages, currentPage) => {
     }
   }
 
-  return pageNumbers.sort();
+  return pageNumbers.sort((a, b) => a - b);
 };
 
 const DirectionButton = ({ total, current, direction }: DirectionButtonProps) => {
