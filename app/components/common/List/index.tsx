@@ -15,7 +15,7 @@ const List = ({
   }
 
   return (
-    <section className="container">
+    <section>
       <div className="w-full text-sm text-left">
         <Header itemConfig={itemConfig} />
         <main>
@@ -24,7 +24,11 @@ const List = ({
           })}
         </main>
       </div>
-      <Pagination meta={meta} />
+      {
+        meta && (
+          <Pagination meta={meta} />
+        )
+      }
     </section >
   );
 };

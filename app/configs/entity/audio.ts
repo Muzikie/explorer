@@ -1,7 +1,7 @@
 import type{ ListHeader } from '~/components/common/List/types';
 import type { Audio } from '~/configs';
 
-const audioHeader = (data: Audio): ListHeader => (
+export const audioTableConfig = (data: Audio): ListHeader => (
   {
     gridClassName: 'grid-cols-4',
     items: [
@@ -28,5 +28,3 @@ const audioHeader = (data: Audio): ListHeader => (
     ],
   }
 );
-
-export default audioHeader;

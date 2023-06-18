@@ -12,7 +12,7 @@ import type {
   TransactionsLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import transactionDataConfig from '~/configs/entity/transaction';
+import { transactionTableConfig } from '~/configs/entity/transaction';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
@@ -42,7 +42,7 @@ const TransactionsScreen = () => {
     <section className="container m-auto">
       <List
         emptyTitle="No transactions found."
-        itemConfig={transactionDataConfig}
+        itemConfig={transactionTableConfig}
         items={data}
         meta={meta}
       />

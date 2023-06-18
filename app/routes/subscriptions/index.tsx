@@ -12,7 +12,7 @@ import type {
   SubscriptionsLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import subscriptionDataConfig from '~/configs/entity/subscription';
+import { subscriptionTableConfig } from '~/configs/entity/subscription';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
@@ -42,7 +42,7 @@ const SubscriptionsScreen = () => {
     <section className="container m-auto">
       <List
         emptyTitle="No subscription found."
-        itemConfig={subscriptionDataConfig}
+        itemConfig={subscriptionTableConfig}
         items={data}
         meta={meta}
       />

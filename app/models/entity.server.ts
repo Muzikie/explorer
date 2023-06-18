@@ -15,7 +15,7 @@ import { removeNullValues } from '~/helpers/helpers';
 const getList = (entity: string, params: EndpointParams) => {
   const validatedParams = removeNullValues(params);
   const search = new URLSearchParams(validatedParams);
-  const queryString = search.toString()
+  const queryString = search.toString();
   return fetch(`${API_URLS.STREAMER}/api/${API_VERSION}/${entity}?${queryString}`).then((res) => res.json());
 };
 

@@ -12,7 +12,7 @@ import type {
   CollectionsLoaderData,
 } from '../types';
 import List from '~/components/common/List';
-import collectionDataConfig from '~/configs/entity/collection';
+import { collectionTableConfig } from '~/configs/entity/collection';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
@@ -42,7 +42,7 @@ const CollectionsScreen = () => {
     <section className="container m-auto">
       <List
         emptyTitle="No collection found."
-        itemConfig={collectionDataConfig}
+        itemConfig={collectionTableConfig}
         items={data}
         meta={meta}
       />
