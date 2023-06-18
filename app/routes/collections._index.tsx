@@ -10,7 +10,7 @@ import {
 import type {
   ListLoaderProps,
   CollectionsLoaderData,
-} from '../types';
+} from './types';
 import List from '~/components/common/List';
 import { collectionTableConfig } from '~/configs/entity/collection';
 
@@ -41,7 +41,7 @@ const CollectionsScreen = () => {
   return (
     <section className="container m-auto">
       <List
-        emptyTitle="No collection found."
+        entity="collection"
         itemConfig={collectionTableConfig}
         items={data}
         meta={meta}

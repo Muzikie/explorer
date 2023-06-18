@@ -5,44 +5,44 @@ import { useLoaderData } from '@remix-run/react';
 
 /* Internal dependencies */
 import {
-  getAudios,
+  getSubscriptions,
 } from '~/models/entity.server';
 import type {
   ListLoaderProps,
-  AudiosLoaderData,
-} from '../types';
+  SubscriptionsLoaderData,
+} from './types';
 import List from '~/components/common/List';
-import { audioTableConfig } from '~/configs/entity/audio';
+import { subscriptionTableConfig } from '~/configs/entity/subscription';
 
 export const loader = async ({ request }: ListLoaderProps) => {
   const url = new URL(request.url);
   const limit = url.searchParams.get('limit');
   const offset = url.searchParams.get('offset');
-  const audioID = url.searchParams.get('audioID');
+  const subscriptionID = url.searchParams.get('subscriptionID');
   const params: Record<string, string | null> = {
-    audioID,
+    subscriptionID,
     limit,
     offset
   };
-  const audios = await getAudios({ params });
+  const subscriptions = await getSubscriptions({ params });
 
-  return json<AudiosLoaderData>({
-    ...audios,
+  return json<SubscriptionsLoaderData>({
+    ...subscriptions,
     params,
   });
 };
 
-const AudiosScreen = () => {
+const SubscriptionsScreen = () => {
   const {
     data,
     meta,
-  } = useLoaderData() as AudiosLoaderData;
+  } = useLoaderData() as SubscriptionsLoaderData;
 
   return (
     <section className="container m-auto">
       <List
-        emptyTitle="No audio found."
-        itemConfig={audioTableConfig}
+        entity="subscription"
+        itemConfig={subscriptionTableConfig}
         items={data}
         meta={meta}
       />
@@ -50,4 +50,4 @@ const AudiosScreen = () => {
   );
 };
 
-export default AudiosScreen;
+export default SubscriptionsScreen;
