@@ -37,3 +37,11 @@ export const convertToken = (num: string, token?: string|undefined): string => {
   const formatted = BigNumber(num).dividedBy(BigNumber(1E8)).toFixed(4);
   return token ? `${formatted} ${token}` : formatted;
 };
+
+export const formatTime = (num: number): string => {
+  const date = new Date(num * 1000);
+  const hours = date.getHours();
+  const minutes = date.getMinutes().toString();
+  const seconds = date.getSeconds().toString();
+  return `${hours}:${minutes.padStart(2, '0')}:${seconds.padStart(2, '0')}`;
+};

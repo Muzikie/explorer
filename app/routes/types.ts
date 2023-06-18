@@ -4,6 +4,7 @@ import type {
   Profile,
   Playlist,
   Transaction,
+  Generator,
   Block,
   EndpointParams,
   MetaProps,
@@ -35,6 +36,10 @@ export interface AudiosLoaderData extends LoaderData<Audio> {
 
 export interface SubscriptionsLoaderData extends LoaderData<Subscription> {
   data: Awaited<Subscription[]>;
+}
+
+export interface GeneratorLoaderData extends LoaderData<Generator> {
+  data: Awaited<Generator[]>;
 }
 
 export interface DetailsLoaderData<T> {

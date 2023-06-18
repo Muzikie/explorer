@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
+import { useLocation } from 'react-router-dom';
 import { Link } from '@remix-run/react';
 
 import Logo from '~/components/common/Logo';
@@ -12,10 +13,12 @@ const menuItems = [
   { name: 'Subscriptions', to: '/subscriptions' },
   { name: 'Collections', to: '/collections' },
   { name: 'Audios', to: '/audios' },
+  { name: 'Generators', to: '/generators' },
 ];
 
 const MainHeader = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <header className="z-50 mb-28 container m-auto">
@@ -31,7 +34,11 @@ const MainHeader = () => {
         <nav className="hidden lg:flex lg:gap-x-12 items-center">
           {
             menuItems.map((item) => (
-              <Link key={item.name} to={item.to} className="text-xl font-normal leading-6 text-main-purple dark:text-main-beige">
+              <Link
+                key={item.name}
+                to={item.to}
+                className={`text-xl leading-6 text-main-purple dark:text-main-beige ${location.pathname === item.to ? 'font-semibold' : 'font-normal'}`}
+              >
                 {item.name}
               </Link>
             ))

@@ -85,6 +85,13 @@ export interface Playlist extends BaseEntity {
   meta: string;
 }
 
+export interface Generator {
+  status: string;
+  nextAllocatedTime: number;
+  address: string;
+  name?: string;
+}
+
 export interface Account {
   address?: string;
   publicKey?: string;
