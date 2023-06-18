@@ -55,7 +55,7 @@ export default function Index() {
       <NetworkDetails stats={networkStatus} />
       <section className="grid grid-cols-2 gap-2 gap-x-8 mt-8">
         <section className="bg-light-beige dark:bg-main-purple px-8 rounded-3xl">
-          <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest blocks</h2>
+          <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest transactions</h2>
           <List
             entity={EntityName.transaction}
             itemConfig={transactionMiniTableConfig}
@@ -63,7 +63,7 @@ export default function Index() {
           />
         </section>
         <section className="bg-light-beige dark:bg-main-purple px-8 rounded-3xl">
-          <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest Transactions</h2>
+          <h2 className="text-xl font-base pt-12 pb-6 text-dark-purple dark:text-main-beige">Latest blocks</h2>
           <List
             entity={EntityName.block}
             itemConfig={blockMiniTableConfig}
