@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type { MetaProps, EntityName } from '~/configs';
 
 export type GeneratePageNumbers = (totalPages: number, currentPage: number) => number[];
@@ -50,4 +51,11 @@ export interface RowProps<T> {
 export interface ColumnProps {
 	data: string|number|boolean;
 	className: string;
+}
+
+export interface RowWrapper {
+	id: string;
+	gridClassName: string;
+	entity: string;
+	children: ReactNode;
 }

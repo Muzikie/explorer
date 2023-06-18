@@ -13,14 +13,12 @@ const menuItems = [
   { name: 'Subscriptions', to: '/subscriptions' },
   { name: 'Collections', to: '/collections' },
   { name: 'Audios', to: '/audios' },
-  { name: 'Validators', to: '/validators' },
+  { name: 'Generators', to: '/generators' },
 ];
 
 const MainHeader = () => {
   const location = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  console.log('location.pathname', location.pathname);
 
   return (
     <header className="z-50 mb-28 container m-auto">

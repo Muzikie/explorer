@@ -8,6 +8,7 @@ import type {
   Transaction,
   EndpointParams,
   AwaitedEndpointResult,
+  Generator,
 } from '~/configs/types';
 import { API_URLS, API_VERSION } from '~/configs/api';
 import { removeNullValues } from '~/helpers/helpers';
@@ -41,6 +42,10 @@ export async function getBlocks({ params }: { params: EndpointParams }): Awaited
 
 export async function getSubscriptions({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Subscription>> {
   return getList('subscriptions', params);
+}
+
+export async function getGenerators({ params }: { params: EndpointParams }): AwaitedEndpointResult<Array<Generator>> {
+  return getList('generators', params);
 }
 
 export async function getNetworkStatus(): Promise<NetworkStatus> {
