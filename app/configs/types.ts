@@ -120,7 +120,7 @@ export interface Block {
   isFinal: boolean;
 }
 
-export type Entity = Transaction | Audio | Playlist | Profile | Collection;
+export type Entity = Transaction | Audio | Playlist | Profile | Collection | Subscription | Block;
 
 export interface CreateCommandParams extends BaseEntity {
   name: string;
@@ -133,10 +133,19 @@ export interface CreateCommandParams extends BaseEntity {
   bannerSignature: Buffer;
 }
 
+export enum EntityName {
+  block = 'block',
+  transaction = 'transaction',
+  subscription = 'subscription',
+  collection = 'collection',
+  audio = 'audio',
+  profile = 'profile',
+}
+
 export type EndpointParams = Partial<Record<
   'offset' | 'limit' | 'sort'
   | 'audioID' | 'collectionID' | 'profileID'
-  | 'transactionID' | 'blockID',
+  | 'transactionID' | 'blockID' | 'subscriptionID',
 string>>;
 
 export interface MetaProps {

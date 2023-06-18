@@ -5,13 +5,13 @@ import Header from './Header';
 import Row from './Row';
 
 const List = ({
+  entity,
   itemConfig,
-  emptyTitle,
   items,
   meta,
 }: ListProps<any>) => {
   if (items.length === 0) {
-    return (<Empty emptyTitle={emptyTitle} />)
+    return (<Empty entity={entity} />)
   }
 
   return (
@@ -20,7 +20,7 @@ const List = ({
         <Header itemConfig={itemConfig} />
         <main>
           {items.map((item, index) => {
-            return (<Row data={item} itemConfig={itemConfig} key={index} />);
+            return (<Row data={item} entity={entity} itemConfig={itemConfig} key={index} />);
           })}
         </main>
       </div>

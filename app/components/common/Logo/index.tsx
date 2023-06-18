@@ -2,7 +2,7 @@
 
 const Logo = () => (
   <div className="flex items-center">
-    <img src="./images/logo.svg" alt="Muzikie Explorer" className="h-12 w-auto" />
+    <img src="/images/logo.svg" alt="Muzikie Explorer" className="h-12 w-auto" />
     <span className="ml-2 text-2xl font-bold leading-6 text-main-purple dark:text-main-beige ps-2">
       Muzikie
     </span>
