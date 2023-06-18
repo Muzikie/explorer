@@ -86,7 +86,7 @@ const Pagination = ({
         <div className="hidden sm:flex pl-6">
           <p className="text-base text-main-purple dark:text-main-beige">
             Showing <span className="font-medium">{meta.offset}</span> to <span className="font-medium">{meta.offset + meta.count}</span> of{' '}
-            <span className="font-medium">{meta.count}</span> results
+            <span className="font-medium">{meta.total}</span> results
           </p>
         </div>
         <div>
